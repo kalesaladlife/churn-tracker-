@@ -252,7 +252,7 @@
       sessionStorage.setItem('tracker_pw', pw);
       clients = await res.json();
       document.getElementById('login-wrap').style.display = 'none';
-      document.getElementById('app').style.display = '';
+      document.getElementById('app').style.display = 'block';
       setSyncing(false);
       renderAll();
     } catch(e) { err.textContent = 'Could not connect. Try again.'; setSyncing(false); }

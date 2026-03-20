@@ -1,6 +1,5 @@
 import { getStore } from "@netlify/blobs";
 
-const PASSWORD = process.env.TRACKER_PASSWORD || "changeme";
 const CLIENTS_KEY = "clients";
 
 export default async (req, context) => {
@@ -16,8 +15,15 @@ export default async (req, context) => {
   }
 
   const provided = req.headers.get("X-Password");
-  if (provided !== PASSWORD) {
-    return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers });
+  const expected = process.env.TRACKER_PASSWORD;
+
+  // Debug log — we'll remove this once it's working
+  console.log("PROVIDED:", JSON.stringify(provided));
+  console.log("EXPECTED:", JSON.stringify(expected));
+  console.log("MATCH:", provided === expected);
+
+  if (!expected || provided !== expected) {
+    return new Response(JSON.stringify({ error: "Unauthorized", debug: { expected: expected ? "is set" : "NOT SET", provided: provided ? "is set" : "NOT SET" } }), { status: 401, headers });
   }
 
   try {
@@ -25,11 +31,7 @@ export default async (req, context) => {
 
     if (req.method === "GET") {
       let data = [];
-      try {
-        data = await store.get(CLIENTS_KEY, { type: "json" }) || [];
-      } catch (e) {
-        data = [];
-      }
+      try { data = await store.get(CLIENTS_KEY, { type: "json" }) || []; } catch (e) { data = []; }
       return new Response(JSON.stringify(data), { status: 200, headers });
     }
 

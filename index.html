@@ -28,8 +28,6 @@
     }
   }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg3); color: var(--text); min-height: 100vh; font-size: 14px; line-height: 1.5; }
-
-  /* ── Login screen ── */
   .login-wrap { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 2rem; }
   .login-card { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 2.5rem 2rem; width: 100%; max-width: 360px; box-shadow: var(--shadow); text-align: center; }
   .login-title { font-size: 20px; font-weight: 600; margin-bottom: 6px; }
@@ -39,8 +37,6 @@
   .login-btn { width: 100%; background: var(--text); color: var(--bg); border: none; border-radius: var(--radius-md); padding: 10px; font-size: 14px; font-weight: 500; cursor: pointer; font-family: inherit; transition: opacity .15s; }
   .login-btn:hover { opacity: .85; }
   .login-error { font-size: 12px; color: var(--danger-text); margin-top: 8px; min-height: 18px; }
-
-  /* ── App ── */
   .app { display: none; }
   .page { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem; }
   .top-header { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.75rem; gap: 12px; flex-wrap: wrap; }
@@ -56,25 +52,21 @@
   .btn-add:hover { opacity: .85; }
   .btn-logout { background: transparent; color: var(--text2); border: 0.5px solid var(--border2); border-radius: var(--radius-md); padding: 7px 14px; font-size: 12px; cursor: pointer; font-family: inherit; }
   .btn-logout:hover { background: var(--bg2); }
-
   .summary { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-bottom: 1.5rem; }
   .stat { background: var(--bg); border-radius: var(--radius-lg); border: 0.5px solid var(--border); padding: 1rem 1.25rem; box-shadow: var(--shadow); }
   .stat-label { font-size: 12px; color: var(--text2); margin-bottom: 6px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.04em; }
   .stat-value { font-size: 26px; font-weight: 600; }
   .stat-value.danger { color: var(--danger-text); }
   .stat-value.warn { color: var(--warn-text); }
-
   .controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 1rem; }
   .search { flex: 1; min-width: 180px; padding: 8px 14px; font-size: 13px; border-radius: var(--radius-md); border: 0.5px solid var(--border2); background: var(--bg); color: var(--text); font-family: inherit; outline: none; }
   .search:focus { border-color: var(--text3); }
   .filter-btn { background: var(--bg); border: 0.5px solid var(--border); border-radius: var(--radius-md); padding: 7px 16px; font-size: 13px; cursor: pointer; color: var(--text2); font-family: inherit; transition: all .15s; }
   .filter-btn:hover { border-color: var(--border2); color: var(--text); }
   .filter-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
-
   .legend { display: flex; gap: 16px; margin-bottom: 0.75rem; flex-wrap: wrap; }
   .legend-item { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text2); }
   .legend-dot { width: 9px; height: 9px; border-radius: 50%; }
-
   .table-wrap { background: var(--bg); border-radius: var(--radius-lg); border: 0.5px solid var(--border); box-shadow: var(--shadow); overflow: hidden; }
   table { width: 100%; border-collapse: collapse; font-size: 13px; }
   thead th { text-align: left; padding: 10px 14px; font-weight: 500; font-size: 12px; color: var(--text2); border-bottom: 0.5px solid var(--border); background: var(--bg2); white-space: nowrap; cursor: pointer; user-select: none; }
@@ -85,29 +77,23 @@
   tbody tr:last-child { border-bottom: none; }
   tbody tr:hover { background: var(--bg2); }
   tbody td { padding: 11px 14px; vertical-align: middle; }
-
   .risk-badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 500; white-space: nowrap; }
   .risk-high { background: var(--danger-bg); color: var(--danger-text); }
   .risk-medium { background: var(--warn-bg); color: var(--warn-text); }
   .risk-low { background: var(--success-bg); color: var(--success-text); }
-
   .score-cell { display: flex; flex-direction: column; gap: 6px; }
   .score-top { display: flex; align-items: center; gap: 8px; }
   .score-bar-bg { flex: 1; height: 4px; background: var(--border); border-radius: 999px; overflow: hidden; min-width: 50px; }
   .score-bar-fill { height: 100%; border-radius: 999px; }
   .score-num { font-size: 12px; color: var(--text2); min-width: 26px; text-align: right; }
-
   .factor-dots { display: flex; gap: 5px; flex-wrap: wrap; }
   .dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
   .dot-red { background: var(--danger-text); }
   .dot-amber { background: var(--warn-text); }
   .dot-off { background: var(--border2); }
-
   .date-sub { font-size: 11px; display: block; margin-top: 2px; }
   .notes-cell { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text2); font-size: 12px; }
   .empty { text-align: center; padding: 3rem 0; color: var(--text2); font-size: 13px; }
-
-  /* Modal */
   .modal-backdrop { display: none; position: fixed; inset: 0; background: rgba(0,0,0,.4); z-index: 100; align-items: center; justify-content: center; padding: 1rem; backdrop-filter: blur(2px); }
   .modal-backdrop.open { display: flex; }
   .modal { background: var(--bg); border-radius: var(--radius-lg); border: 0.5px solid var(--border); padding: 1.75rem; width: 100%; max-width: 500px; max-height: 90vh; overflow-y: auto; box-shadow: 0 8px 40px rgba(0,0,0,.18); }
@@ -138,7 +124,6 @@
   .btn-cancel:hover { background: var(--bg2); }
   .btn-danger { background: var(--danger-bg); color: var(--danger-text); border: none; border-radius: var(--radius-md); padding: 9px 16px; font-size: 13px; cursor: pointer; font-family: inherit; margin-right: auto; }
   .btn-danger:hover { opacity: .8; }
-
   @media (max-width: 680px) {
     .summary { grid-template-columns: 1fr 1fr; }
     .form-grid { grid-template-columns: 1fr; }
@@ -149,7 +134,6 @@
 </head>
 <body>
 
-<!-- Login -->
 <div class="login-wrap" id="login-wrap">
   <div class="login-card">
     <div class="login-title">Churn Risk Tracker</div>
@@ -160,7 +144,6 @@
   </div>
 </div>
 
-<!-- App -->
 <div class="app" id="app">
   <div class="page">
     <div class="top-header">
@@ -174,9 +157,7 @@
         <button class="btn-add" onclick="openAdd()">+ Add client</button>
       </div>
     </div>
-
     <div class="summary" id="summary"></div>
-
     <div class="controls">
       <input class="search" type="text" placeholder="Search clients..." id="search-input" oninput="renderTable()">
       <button class="filter-btn active" data-f="all" onclick="setFilter(this)">All</button>
@@ -184,7 +165,6 @@
       <button class="filter-btn" data-f="medium" onclick="setFilter(this)">Medium risk</button>
       <button class="filter-btn" data-f="low" onclick="setFilter(this)">Low risk</button>
     </div>
-
     <div class="legend">
       <div class="legend-item"><div class="legend-dot" style="background:var(--danger-text)"></div>Renewal soon</div>
       <div class="legend-item"><div class="legend-dot" style="background:var(--warn-text)"></div>Low engagement</div>
@@ -192,7 +172,6 @@
       <div class="legend-item"><div class="legend-dot" style="background:var(--border2)"></div>Contact turnover</div>
       <div class="legend-item" style="margin-left:auto;color:var(--text3);font-style:italic">Click any row to edit</div>
     </div>
-
     <div class="table-wrap">
       <table>
         <thead>
@@ -213,7 +192,6 @@
   </div>
 </div>
 
-<!-- Modal -->
 <div class="modal-backdrop" id="backdrop" onclick="handleBdClick(event)">
   <div class="modal" onclick="event.stopPropagation()">
     <div class="modal-header">
@@ -256,17 +234,10 @@
 </div>
 
 <script>
-  let clients = [];
-  let editId = null;
-  let filter = 'all';
-  let sortKey = 'score';
-  let sortDir = -1;
+  let clients = [], editId = null, filter = 'all', sortKey = 'score', sortDir = -1, password = '';
   let formFactors = { renewal: false, engagement: false, complaints: false, turnover: false };
-  let password = '';
-
   const WEIGHTS = { renewal: 30, engagement: 25, complaints: 30, turnover: 15 };
 
-  // ── Auth ──
   async function doLogin() {
     const pw = document.getElementById('pw-input').value;
     const err = document.getElementById('login-error');
@@ -274,9 +245,9 @@
     if (!pw) { err.textContent = 'Please enter a password.'; return; }
     setSyncing(true);
     try {
-      const res = await fetch('/.netlify/functions/clients', { headers: { 'X-Password': pw } });
+      const res = await fetch('/api/clients', { headers: { 'X-Password': pw } });
       if (res.status === 401) { err.textContent = 'Incorrect password.'; setSyncing(false); return; }
-      if (!res.ok) throw new Error('Server error');
+      if (!res.ok) throw new Error();
       password = pw;
       sessionStorage.setItem('tracker_pw', pw);
       clients = await res.json();
@@ -284,23 +255,17 @@
       document.getElementById('app').style.display = '';
       setSyncing(false);
       renderAll();
-    } catch(e) {
-      err.textContent = 'Could not connect. Try again.';
-      setSyncing(false);
-    }
+    } catch(e) { err.textContent = 'Could not connect. Try again.'; setSyncing(false); }
   }
 
   function logout() {
-    sessionStorage.removeItem('tracker_pw');
-    password = '';
-    clients = [];
+    sessionStorage.removeItem('tracker_pw'); password = ''; clients = [];
     document.getElementById('pw-input').value = '';
     document.getElementById('login-error').textContent = '';
     document.getElementById('app').style.display = 'none';
     document.getElementById('login-wrap').style.display = '';
   }
 
-  // ── Sync ──
   function setSyncing(on, isError) {
     const dot = document.getElementById('sync-dot');
     const lbl = document.getElementById('sync-label');
@@ -312,64 +277,36 @@
   async function pushData() {
     setSyncing(true);
     try {
-      const res = await fetch('/.netlify/functions/clients', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Password': password },
-        body: JSON.stringify(clients)
-      });
+      const res = await fetch('/api/clients', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Password': password }, body: JSON.stringify(clients) });
       if (!res.ok) throw new Error();
       setSyncing(false);
-    } catch(e) {
-      setSyncing(false, true);
-    }
+    } catch(e) { setSyncing(false, true); }
   }
 
-  // ── Scoring ──
   function calcScore(c) {
     let s = 0;
     for (const k in WEIGHTS) if (c.factors[k]) s += WEIGHTS[k];
-    if (c.renewal) {
-      const diff = (new Date(c.renewal + 'T00:00:00') - new Date()) / 86400000;
-      if (diff >= 0 && diff < 90 && !c.factors.renewal) s += 15;
-    }
-    if (c.lastContact) {
-      const days = (new Date() - new Date(c.lastContact + 'T00:00:00')) / 86400000;
-      if (days > 60) s += 10;
-    }
+    if (c.renewal) { const diff = (new Date(c.renewal+'T00:00:00') - new Date()) / 86400000; if (diff >= 0 && diff < 90 && !c.factors.renewal) s += 15; }
+    if (c.lastContact) { const days = (new Date() - new Date(c.lastContact+'T00:00:00')) / 86400000; if (days > 60) s += 10; }
     return Math.min(Math.round(s), 100);
   }
-  function level(score) { return score >= 55 ? 'high' : score >= 25 ? 'medium' : 'low'; }
+  function level(s) { return s >= 55 ? 'high' : s >= 25 ? 'medium' : 'low'; }
   function scoreColor(s) { return s >= 55 ? 'var(--danger-text)' : s >= 25 ? 'var(--warn-text)' : 'var(--success-text)'; }
-
-  // ── Formatting ──
-  function fmtDate(s) {
-    if (!s) return '—';
-    return new Date(s + 'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
-  }
-  function fmtARR(n) {
-    if (!n) return '—';
-    if (n >= 1000000) return '$' + (n/1000000).toFixed(1) + 'M';
-    if (n >= 1000) return '$' + Math.round(n/1000) + 'K';
-    return '$' + n;
-  }
-  function daysUntil(s) {
-    if (!s) return null;
-    return Math.round((new Date(s + 'T00:00:00') - new Date()) / 86400000);
-  }
+  function fmtDate(s) { if (!s) return '—'; return new Date(s+'T00:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }
+  function fmtARR(n) { if (!n) return '—'; if (n >= 1000000) return '$'+(n/1000000).toFixed(1)+'M'; if (n >= 1000) return '$'+Math.round(n/1000)+'K'; return '$'+n; }
+  function daysUntil(s) { if (!s) return null; return Math.round((new Date(s+'T00:00:00') - new Date()) / 86400000); }
   function esc(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-  // ── Render ──
   function renderSummary() {
     const scored = clients.map(c => calcScore(c));
     const high = scored.filter(s => level(s)==='high').length;
     const med = scored.filter(s => level(s)==='medium').length;
-    const atRisk = clients.filter((c,i) => level(scored[i])!=='low').reduce((a,c) => a+(parseInt(c.arr)||0),0);
+    const atRisk = clients.filter((c,i) => level(scored[i])!=='low').reduce((a,c) => a+(parseInt(c.arr)||0), 0);
     document.getElementById('summary').innerHTML = `
       <div class="stat"><div class="stat-label">Total clients</div><div class="stat-value">${clients.length}</div></div>
       <div class="stat"><div class="stat-label">High risk</div><div class="stat-value danger">${high}</div></div>
       <div class="stat"><div class="stat-label">Medium risk</div><div class="stat-value warn">${med}</div></div>
-      <div class="stat"><div class="stat-label">ARR at risk</div><div class="stat-value warn">${fmtARR(atRisk)}</div></div>
-    `;
+      <div class="stat"><div class="stat-label">ARR at risk</div><div class="stat-value warn">${fmtARR(atRisk)}</div></div>`;
   }
 
   function renderTable() {
@@ -377,129 +314,76 @@
     let rows = clients.map(c => ({ ...c, score: calcScore(c) })).map(c => ({ ...c, lv: level(c.score) }));
     if (filter !== 'all') rows = rows.filter(r => r.lv === filter);
     if (q) rows = rows.filter(r => r.name.toLowerCase().includes(q));
-    rows.sort((a,b) => {
-      let av = a[sortKey], bv = b[sortKey];
-      if (sortKey==='renewal'||sortKey==='lastContact') { av=av||'9999-99-99'; bv=bv||'9999-99-99'; }
-      if (av==null) av=0; if (bv==null) bv=0;
-      if (av<bv) return -sortDir; if (av>bv) return sortDir; return 0;
-    });
-    const tbody = document.getElementById('tbody');
-    const empty = document.getElementById('empty');
+    rows.sort((a,b) => { let av=a[sortKey],bv=b[sortKey]; if (sortKey==='renewal'||sortKey==='lastContact'){av=av||'9999-99-99';bv=bv||'9999-99-99';} if(av==null)av=0;if(bv==null)bv=0; if(av<bv)return -sortDir;if(av>bv)return sortDir;return 0; });
+    const tbody = document.getElementById('tbody'), empty = document.getElementById('empty');
     if (!rows.length) { tbody.innerHTML=''; empty.style.display=''; return; }
     empty.style.display = 'none';
     const FK = ['renewal','engagement','complaints','turnover'];
     tbody.innerHTML = rows.map(c => {
       const col = scoreColor(c.score);
       const badge = `<span class="risk-badge risk-${c.lv}">${c.lv==='high'?'▲':c.lv==='medium'?'◆':'●'} ${c.lv.charAt(0).toUpperCase()+c.lv.slice(1)}</span>`;
-      const bar = `<div class="score-bar-bg"><div class="score-bar-fill" style="width:${c.score}%;background:${col}"></div></div>`;
-      const scoreCell = `<div class="score-cell"><div class="score-top">${badge}<span class="score-num">${c.score}</span></div>${bar}</div>`;
+      const scoreCell = `<div class="score-cell"><div class="score-top">${badge}<span class="score-num">${c.score}</span></div><div class="score-bar-bg"><div class="score-bar-fill" style="width:${c.score}%;background:${col}"></div></div></div>`;
       const dc = c.lv==='high'?'dot-red':'dot-amber';
       const dots = FK.map(k=>`<div class="dot ${c.factors[k]?dc:'dot-off'}"></div>`).join('');
       const du = daysUntil(c.renewal);
-      const duHtml = du===null?'' : du<=0?`<span class="date-sub" style="color:var(--danger-text)">Expired</span>` : du<=90?`<span class="date-sub" style="color:var(--warn-text)">${du} days</span>` : `<span class="date-sub" style="color:var(--text3)">${du} days</span>`;
-      return `<tr onclick="openEdit(${c.id})">
-        <td style="font-weight:500">${esc(c.name)}</td>
-        <td>${scoreCell}</td>
-        <td><div class="factor-dots">${dots}</div></td>
-        <td style="font-size:12px;color:var(--text2)">${fmtARR(c.arr)}</td>
-        <td style="font-size:12px;color:var(--text2)">${fmtDate(c.renewal)}${duHtml}</td>
-        <td style="font-size:12px;color:var(--text2)">${fmtDate(c.lastContact)}</td>
-        <td class="notes-cell">${esc(c.notes||'')}</td>
-      </tr>`;
+      const duHtml = du===null?'':du<=0?`<span class="date-sub" style="color:var(--danger-text)">Expired</span>`:du<=90?`<span class="date-sub" style="color:var(--warn-text)">${du} days</span>`:`<span class="date-sub" style="color:var(--text3)">${du} days</span>`;
+      return `<tr onclick="openEdit(${c.id})"><td style="font-weight:500">${esc(c.name)}</td><td>${scoreCell}</td><td><div class="factor-dots">${dots}</div></td><td style="font-size:12px;color:var(--text2)">${fmtARR(c.arr)}</td><td style="font-size:12px;color:var(--text2)">${fmtDate(c.renewal)}${duHtml}</td><td style="font-size:12px;color:var(--text2)">${fmtDate(c.lastContact)}</td><td class="notes-cell">${esc(c.notes||'')}</td></tr>`;
     }).join('');
   }
 
   function renderAll() { renderSummary(); renderTable(); }
 
-  // ── Controls ──
-  function setFilter(btn) {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    filter = btn.dataset.f;
-    renderTable();
-  }
+  function setFilter(btn) { document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); filter=btn.dataset.f; renderTable(); }
+  function setSort(key) { if(sortKey===key)sortDir*=-1;else{sortKey=key;sortDir=-1;} ['name','score','arr','renewal','lastContact'].forEach(k=>{const el=document.getElementById('s-'+k);if(el)el.textContent=k===sortKey?(sortDir===-1?'↓':'↑'):'';}); renderTable(); }
+  function toggleF(k) { formFactors[k]=!formFactors[k]; const el=document.getElementById('t-'+k); if(el)el.classList.toggle('on',formFactors[k]); }
 
-  const SCOLS = ['name','score','arr','renewal','lastContact'];
-  function setSort(key) {
-    if (sortKey===key) sortDir*=-1; else { sortKey=key; sortDir=-1; }
-    SCOLS.forEach(k => { const el=document.getElementById('s-'+k); if(el) el.textContent=k===sortKey?(sortDir===-1?'↓':'↑'):''; });
-    renderTable();
-  }
-
-  function toggleF(k) {
-    formFactors[k] = !formFactors[k];
-    const el = document.getElementById('t-'+k);
-    if (el) el.classList.toggle('on', formFactors[k]);
-  }
-
-  // ── Modal ──
   function openAdd() {
-    editId = null;
-    formFactors = { renewal:false, engagement:false, complaints:false, turnover:false };
-    ['f-name','f-arr','f-renewal','f-lastContact','f-notes'].forEach(id => { const el=document.getElementById(id); if(el) el.value=''; });
-    Object.keys(formFactors).forEach(k => { const el=document.getElementById('t-'+k); if(el) el.classList.remove('on'); });
-    document.getElementById('modal-title').textContent = 'Add client';
-    document.getElementById('del-btn').style.display = 'none';
+    editId=null; formFactors={renewal:false,engagement:false,complaints:false,turnover:false};
+    ['f-name','f-arr','f-renewal','f-lastContact','f-notes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    Object.keys(formFactors).forEach(k=>{const el=document.getElementById('t-'+k);if(el)el.classList.remove('on');});
+    document.getElementById('modal-title').textContent='Add client';
+    document.getElementById('del-btn').style.display='none';
     document.getElementById('backdrop').classList.add('open');
-    setTimeout(() => document.getElementById('f-name').focus(), 50);
+    setTimeout(()=>document.getElementById('f-name').focus(),50);
   }
 
   function openEdit(id) {
-    const c = clients.find(x => x.id===id); if(!c) return;
-    editId = id;
-    formFactors = { ...c.factors };
-    document.getElementById('f-name').value = c.name;
-    document.getElementById('f-arr').value = c.arr||'';
-    document.getElementById('f-renewal').value = c.renewal||'';
-    document.getElementById('f-lastContact').value = c.lastContact||'';
-    document.getElementById('f-notes').value = c.notes||'';
-    Object.keys(formFactors).forEach(k => { const el=document.getElementById('t-'+k); if(el) el.classList.toggle('on', formFactors[k]); });
-    document.getElementById('modal-title').textContent = 'Edit client';
-    document.getElementById('del-btn').style.display = '';
+    const c=clients.find(x=>x.id===id); if(!c)return;
+    editId=id; formFactors={...c.factors};
+    document.getElementById('f-name').value=c.name;
+    document.getElementById('f-arr').value=c.arr||'';
+    document.getElementById('f-renewal').value=c.renewal||'';
+    document.getElementById('f-lastContact').value=c.lastContact||'';
+    document.getElementById('f-notes').value=c.notes||'';
+    Object.keys(formFactors).forEach(k=>{const el=document.getElementById('t-'+k);if(el)el.classList.toggle('on',formFactors[k]);});
+    document.getElementById('modal-title').textContent='Edit client';
+    document.getElementById('del-btn').style.display='';
     document.getElementById('backdrop').classList.add('open');
   }
 
   function closeModal() { document.getElementById('backdrop').classList.remove('open'); }
-  function handleBdClick(e) { if(e.target===e.currentTarget) closeModal(); }
-  document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+  function handleBdClick(e) { if(e.target===e.currentTarget)closeModal(); }
+  document.addEventListener('keydown', e=>{ if(e.key==='Escape')closeModal(); });
 
   async function saveClient() {
-    const name = document.getElementById('f-name').value.trim();
-    if (!name) { document.getElementById('f-name').focus(); document.getElementById('f-name').style.borderColor='var(--danger-text)'; return; }
-    document.getElementById('f-name').style.borderColor = '';
-    const data = {
-      name,
-      arr: parseInt(document.getElementById('f-arr').value)||0,
-      renewal: document.getElementById('f-renewal').value,
-      lastContact: document.getElementById('f-lastContact').value,
-      notes: document.getElementById('f-notes').value.trim(),
-      factors: { ...formFactors }
-    };
-    if (editId!==null) {
-      const idx = clients.findIndex(c=>c.id===editId);
-      if (idx>-1) clients[idx] = { ...clients[idx], ...data };
-    } else {
-      const maxId = clients.reduce((m,c)=>Math.max(m,c.id),0);
-      clients.push({ id: maxId+1, ...data });
-    }
-    closeModal(); renderAll();
-    await pushData();
+    const name=document.getElementById('f-name').value.trim();
+    if(!name){document.getElementById('f-name').focus();document.getElementById('f-name').style.borderColor='var(--danger-text)';return;}
+    document.getElementById('f-name').style.borderColor='';
+    const data={name,arr:parseInt(document.getElementById('f-arr').value)||0,renewal:document.getElementById('f-renewal').value,lastContact:document.getElementById('f-lastContact').value,notes:document.getElementById('f-notes').value.trim(),factors:{...formFactors}};
+    if(editId!==null){const idx=clients.findIndex(c=>c.id===editId);if(idx>-1)clients[idx]={...clients[idx],...data};}
+    else{const maxId=clients.reduce((m,c)=>Math.max(m,c.id),0);clients.push({id:maxId+1,...data});}
+    closeModal(); renderAll(); await pushData();
   }
 
   async function deleteClient() {
-    if (editId===null) return;
-    if (!confirm('Delete this client? This cannot be undone.')) return;
-    clients = clients.filter(c=>c.id!==editId);
-    closeModal(); renderAll();
-    await pushData();
+    if(editId===null)return;
+    if(!confirm('Delete this client? This cannot be undone.'))return;
+    clients=clients.filter(c=>c.id!==editId);
+    closeModal(); renderAll(); await pushData();
   }
 
-  // ── Boot ──
   const savedPw = sessionStorage.getItem('tracker_pw');
-  if (savedPw) {
-    document.getElementById('pw-input').value = savedPw;
-    doLogin();
-  }
+  if (savedPw) { document.getElementById('pw-input').value=savedPw; doLogin(); }
   document.getElementById('pw-input').focus();
 </script>
 </body>

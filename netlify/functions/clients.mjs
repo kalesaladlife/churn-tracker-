@@ -3,8 +3,7 @@ import { getStore } from "@netlify/blobs";
 const PASSWORD = process.env.TRACKER_PASSWORD || "changeme";
 const CLIENTS_KEY = "clients";
 
-export default async (req) => {
-  // CORS headers
+export default async (req, context) => {
   const headers = {
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "Content-Type, X-Password",
@@ -16,45 +15,34 @@ export default async (req) => {
     return new Response(null, { status: 204, headers });
   }
 
-  // Password check
   const provided = req.headers.get("X-Password");
   if (provided !== PASSWORD) {
-    return new Response(JSON.stringify({ error: "Unauthorized" }), {
-      status: 401,
-      headers,
-    });
+    return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers });
   }
 
-  const store = getStore("churn-tracker");
+  try {
+    const store = getStore({ name: "churn-tracker", consistency: "strong" });
 
-  // GET — load all clients
-  if (req.method === "GET") {
-    try {
-      const data = await store.get(CLIENTS_KEY, { type: "json" });
-      return new Response(JSON.stringify(data || []), { status: 200, headers });
-    } catch (e) {
-      return new Response(JSON.stringify([]), { status: 200, headers });
+    if (req.method === "GET") {
+      let data = [];
+      try {
+        data = await store.get(CLIENTS_KEY, { type: "json" }) || [];
+      } catch (e) {
+        data = [];
+      }
+      return new Response(JSON.stringify(data), { status: 200, headers });
     }
-  }
 
-  // POST — save all clients (full replace)
-  if (req.method === "POST") {
-    try {
+    if (req.method === "POST") {
       const body = await req.json();
       await store.setJSON(CLIENTS_KEY, body);
       return new Response(JSON.stringify({ ok: true }), { status: 200, headers });
-    } catch (e) {
-      return new Response(JSON.stringify({ error: "Save failed" }), {
-        status: 500,
-        headers,
-      });
     }
+  } catch (e) {
+    return new Response(JSON.stringify({ error: e.message }), { status: 500, headers });
   }
 
-  return new Response(JSON.stringify({ error: "Method not allowed" }), {
-    status: 405,
-    headers,
-  });
+  return new Response(JSON.stringify({ error: "Method not allowed" }), { status: 405, headers });
 };
 
 export const config = { path: "/api/clients" };

@@ -245,7 +245,11 @@
     if (!pw) { err.textContent = 'Please enter a password.'; return; }
     setSyncing(true);
     try {
-      const res = await fetch('/api/clients', { headers: { 'X-Password': pw } });
+      const res = await fetch('/api/clients', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: pw })
+      });
       if (res.status === 401) { err.textContent = 'Incorrect password.'; setSyncing(false); return; }
       if (!res.ok) throw new Error();
       password = pw;
@@ -258,26 +262,14 @@
     } catch(e) { err.textContent = 'Could not connect. Try again.'; setSyncing(false); }
   }
 
-  function logout() {
-    sessionStorage.removeItem('tracker_pw'); password = ''; clients = [];
-    document.getElementById('pw-input').value = '';
-    document.getElementById('login-error').textContent = '';
-    document.getElementById('app').style.display = 'none';
-    document.getElementById('login-wrap').style.display = '';
-  }
-
-  function setSyncing(on, isError) {
-    const dot = document.getElementById('sync-dot');
-    const lbl = document.getElementById('sync-label');
-    if (!dot) return;
-    dot.className = 'sync-dot' + (on ? ' syncing' : isError ? ' error' : '');
-    lbl.textContent = on ? 'Saving…' : isError ? 'Sync error' : 'Synced';
-  }
-
   async function pushData() {
     setSyncing(true);
     try {
-      const res = await fetch('/api/clients', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-Password': password }, body: JSON.stringify(clients) });
+      const res = await fetch('/api/clients', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: password, data: clients })
+      });
       if (!res.ok) throw new Error();
       setSyncing(false);
     } catch(e) { setSyncing(false, true); }
